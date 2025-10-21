@@ -12,25 +12,25 @@ MEMBERS:
 
 PROJECT DESCRIPTION:
 ---------------------
-This project is a dual-purpose web application that combines a professional portfolio website with an interactive Random Quote Generator. The portfolio highlights team information, skills, and featured projects, while the quote generator provides motivational quotes fetched from an external API. Together, they showcase both design and technical integration capabilities.
+This project is a dual-purpose web application combining a professional student portfolio with an interactive Random Quote Generator (RQG). The portfolio showcases team skills and projects, while the RQG fetches motivational quotes from an external API. This design demonstrates proficiency in modern front-end development, responsive design, and robust API integration.
 
 KEY FEATURES:
 ----------------------
 Portfolio (index.html)
-- Responsive Navigation: Sticky header with active link highlighting based on scroll position.
-- Theme Toggle: Light and dark modes with saved preferences using localStorage.
-- Animated Sections: Smooth ScrollReveal animations for an engaging user interface.
-- Project Gallery: Filterable project cards powered by Mixitup.js.
-- Contact Form: Integrated with Web3Forms API for form submissions.
-- Smooth Scrolling: Fluid transitions between page sections.
+- Responsive Navigation: Includes a sticky header with dynamic link highlighting based on the user's scroll position.
+- Theme Toggle: Provides Light and Dark modes with user preference saved persistently using the browser's localStorage.
+- Animated Sections: : Features an engaging user interface with smooth visual effects.
+- Project Gallery: Displays categorized project cards.
+- Contact Form: Integrated for reliable message submission using the Web3Forms API.
+- Smooth Scrolling: Offers fluid transitions between various page sections.
 
 Random Quote Generator (rqg.html)
-- API Integration: Retrieves random quotes via the DummyJSON Quotes API.
-- Loading Indicators: Visual feedback while fetching quotes.
-- Error Management: Handles connection or API issues gracefully.
-- Theme Consistency: Uses the same dark/light mode as the portfolio.
-- Instant Quote Refresh: Generates a new quote at the click of a button.
-
+- API Integration: Fetches random quotes using the DummyJSON Quotes API.
+- Loading Indicators: Displays clear loading indicators while fetching new content.
+- Error Management: Manages connection issues and API errors gracefully.
+- Theme Consistency: Synchronizes its appearance with the portfolio's stored theme preference.
+- Instant Quote Refresh: Generates a new quote dynamically with a single button click.
+  
 API INFORMATION:
 ----------------
 | Component       | API Used             | Documentation                                                  | Endpoint                                                                   |
@@ -78,9 +78,8 @@ FUNCTIONALITY BREAKDOWN:
      - Activates animations, scroll effects, and theme setup.
        
    1.2 Navigation Systems
-     - scrollHeader(): Adds or removes header shadow based on scroll.
-     - scrollActive(): Highlights the current section link.
-     - scrollReveal: Animates sections on entry.
+     - scrollHeader(): Controls the visual state of the header based on scroll depth.
+     - scrollActive(): Determines the visible section and updates the corresponding navigation link's active state.
        
    1.3 Theme Management
      - Listens for toggle button clicks to switch between light/dark mode.
@@ -119,6 +118,7 @@ DATA FLOW OVERVIEW:
 ===================
 Quote Data:
 API Response → JSON Parse → Extract {quote, author} → Display on Screen
+
 Theme Data:
 Button Click → Toggle Class → Save to localStorage → Apply Globally
 
