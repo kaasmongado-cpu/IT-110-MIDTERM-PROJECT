@@ -53,22 +53,25 @@
           </div>
         </div>
 
-            <div class="home_team">
-              <div class="home_handle">
-                <img src="assets/img/vivien1.png" alt="Member 1" class="home_img">
-                  <p class="member_name">Vivien Hermoso</p>
-              </div>
+                <div class="home_team">
+          <div class="home_handle">
+              <img src="assets/img/vivien1.png" alt="Vivien Hermoso" class="home_img">
+              <p class="member_name">Vivien Hermoso</p>
+              <p class="member_role">Project Lead & UI/UX Designer</p>
+          </div>
 
-              <div class="home_handle">
-                <img src="assets/img/isaac.png" alt="Member 2" class="home_img">
-                  <p class="member_name">Isaac Dumaplin</p>
-              </div>
+          <div class="home_handle">
+              <img src="assets/img/isaac.png" alt="Isaac Dumaplin" class="home_img">
+              <p class="member_name">Isaac Dumaplin</p>
+              <p class="member_role">Back-end Developer & Content</p>
+          </div>
 
-              <div class="home_handle">
-                <img src="assets/img/dada.png" alt="Member 3" class="home_img">
-                  <p class="member_name">Kim Ayesha Anne Mongado</p>
-              </div>
-            </div>
+          <div class="home_handle">
+              <img src="assets/img/dada.png" alt="Kim Ayesha Anne Mongado" class="home_img">
+              <p class="member_name">Kim Ayesha Anne Mongado</p>
+              <p class="member_role">Front-end Developer</p>
+          </div>
+          </div>
 
 
         <a href="#about" class="home_scroll">
@@ -110,22 +113,30 @@
     </section>
 
     <!-- === PROJECTS SECTION === -->
-    <section class="work section" id="projects">
-      <span class="section_subtitle">Our Work</span>
-      <h2 class="section_title">Project</h2>
+  <section class="work section" id="projects">
+    <span class="section_subtitle">Our Work</span>
+    <h2 class="section_title">Project</h2>
 
-      <div class="work_container container grid">
-     
-      <div class="work_card mix app">
-        <img src="assets/img/rndm.png" alt="Random Quote Generator" class="work_img">
-        <h3 class="work_title">Random Quote Generator</h3>
-        <a href="rqg.html" target="_blank" class="work_button">
-         <i class='bx bx-right-arrow-alt work_icon'></i>
-        </a>
-      </div>
-      </div>
+    <div class="work_container container grid">
 
-    </section>
+        <div class="work_card mix app">
+            <img src="assets/img/rndm.png" alt="Random Quote Generator" class="work_img">
+            <h3 class="work_title">Random Quote Generator</h3>
+             <div class="project_description container">
+        <h2 class="project_title">Project Focus</h2>
+        <p class="project_text">
+            This project served as our team's primary demonstration of Front-End Development
+            and API integration. The main goal was to create a clean, responsive, and 
+            highly usable application that fetches diverse quotes from a third-party API.
+        </p>
+    </div>
+            <a href="rqg.html" target="_blank" class="work_button">
+                <i class='bx bx-right-arrow-alt work_icon'></i>
+            </a>
+        </div>
+    </div>
+
+</section>
 
     <!-- === CONTACT SECTION === -->
     <section class="contact section" id="contact">
@@ -141,7 +152,7 @@
               <i class='bx bxl-facebook-circle contact_card-icon'></i>
               <h3 class="contact_card-title">Facebook</h3>
               <span class="contact_card-data">Group 12</span>
-              <a href="#" target="_blank" class="contact_button">
+              <a href="https://www.facebook.com/k.ayeshaanne" target="_blank" class="contact_button">
                 Message <i class='bx bx-link'></i>
               </a>
             </div>
@@ -150,7 +161,7 @@
               <i class='bx bxl-github contact_card-icon'></i>
               <h3 class="contact_card-title">GitHub</h3>
               <span class="contact_card-data">group12-dev</span>
-              <a href="#" target="_blank" class="contact_button">
+              <a href="https://github.com/kaasmongado-cpu/IT-110-MIDTERM-PROJECT" target="_blank" class="contact_button">
                 Visit <i class='bx bx-link'></i>
               </a>
             </div>
@@ -201,9 +212,9 @@
         <li class="footer_item"><a href="#contact" class="footer_link">Contact</a></li>
       </ul>
       <ul class="footer_social">
-        <li><a href="#" class="footer_social-link"><i class='bx bxl-facebook'></i></a></li>
-        <li><a href="#" class="footer_social-link"><i class='bx bxl-instagram'></i></a></li>
-        <li><a href="#" class="footer_social-link"><i class='bx bxl-github'></i></a></li>
+        <li><a href="https://www.facebook.com/k.ayeshaanne" class="footer_social-link"><i class='bx bxl-facebook'></i></a></li>
+        <li><a href="https://www.instagram.com/kaasmongado/" class="footer_social-link"><i class='bx bxl-instagram'></i></a></li>
+        <li><a href="https://github.com/kaasmongado-cpu/IT-110-MIDTERM-PROJECT" class="footer_social-link"><i class='bx bxl-github'></i></a></li>
       </ul>
       <span class="footer_copy">© 2025 G R O U P 12. All rights reserved.</span>
     </div>
@@ -216,6 +227,13 @@
   <script src="https://unpkg.com/scrollreveal"></script>
 
   <script src="assets/js/main.js"></script>
- 
+  
+  <script>
+  window.addEventListener('load', () => {
+    document.querySelector('.home_container').classList.add('loaded');
+  });
+</script>
+
+
 </body>
 </html>

@@ -380,34 +380,66 @@ font-weight: var(--font-medium);
   width: 260px;
   height: auto;
   display: block;
+   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 1rem;
 }
 
+
+
 /* Name caption */
-.home_name {
+.member_name {
   margin-top: 0.5rem;
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: var(--tiny-font-size-); /* Made slightly smaller than 3rem */
+  font-weight: var(--font-semibold);
+  color: var(--title-color);
+  text-align: center;
+  position: relative; /* Essential for z-index */
+  z-index: 2; /* Ensure it stays above the gradient */
+  transition: color 0.3s ease;
+}
+
+.member_role {
+  /* Style for the new role text */
+  font-family: var(--body-font);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  color: var(--accent-color); /* Use the dark accent color */
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem; /* Space below the role before the bottom of the card */
+  position: relative;
+  z-index: 2;
+  /* Subtle glow */
+  text-shadow: 0 0 5px hsla(var(--second-hue), 80%, 75%, 0.3);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.home_name {
+  /* This is the original rule you provided - it is now obsolete if you use .member_name */
+  /* If you MUST keep it, at least lower the font size for visual appeal with the role */
+  margin-top: 0.5rem;
+  font-size: var(--h1-font-size); /* Use a standard variable size */
+  font-weight: var(--font-semibold);
   color: var(--title-color);
   text-align: center;
 }
 
-/* 🎨 Individual Hover Effects - Custom Color Variants */
 .home_handle:nth-child(1):hover {
   transform: translateY(-8px) scale(1.05);
-  background: linear-gradient(135deg, #62badd, #a8d3f9); /* nude with blue accent */
-  box-shadow: 0 8px 20px rgba(156, 201, 241, 0.7); /* soft blue glow */
+  background: linear-gradient(135deg, #62badd, #41627f);
+  box-shadow: 0 8px 20px rgba(156, 201, 241, 0.7);
 }
 
 .home_handle:nth-child(2):hover {
   transform: translateY(-8px) scale(1.05);
-  background: linear-gradient(135deg, #0a1a5e, #4da8ff); /* dark blue with light blue accent */
-  box-shadow: 0 8px 20px rgba(77, 168, 255, 0.7); /* bright light-blue glow */
+  background: linear-gradient(135deg, #0a1a5e, #4da8ff);
+  box-shadow: 0 8px 20px rgba(77, 168, 255, 0.7);
 }
 
 .home_handle:nth-child(3):hover {
   transform: translateY(-8px) scale(1.05);
-  background: linear-gradient(135deg, #6f42c1, #5ca9f2); /* purple with blue accent */
-  box-shadow: 0 8px 20px rgba(92, 169, 242, 0.7); /* blue glow */
+  background: linear-gradient(135deg, #6f42c1, #5ca9f2);
+  box-shadow: 0 8px 20px rgba(92, 169, 242, 0.7);
 }
 
 /* Add a slight zoom to the image itself */
@@ -432,6 +464,23 @@ font-weight: var(--font-medium);
 .home_handle:nth-child(3) {
  background: linear-gradient(180deg, #6a68af, #e1ecff);
 }
+
+/* Smooth fade-in when the section loads */
+.home_data, 
+.home_team, 
+.home_scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.5s ease-out;
+}
+
+.home_container.loaded .home_data,
+.home_container.loaded .home_team,
+.home_container.loaded .home_scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .home_button {
   display: flex;
@@ -536,6 +585,8 @@ font-weight: var(--font-medium);
   z-index: 1;
 }
 
+
+
 /* ABOUT */
 .about_container {
   row-gap: 2.5rem;
@@ -555,6 +606,10 @@ font-weight: var(--font-medium);
 
 .about_data {
   text-align: center;
+  transition: transform 0.3s ease;
+}
+.about_data:hover {
+  transform: translateY(-2px); /* Slight lift on the whole block */
   transition: transform 0.3s ease;
 }
 
@@ -591,71 +646,24 @@ font-weight: var(--font-medium);
 
 .about_title {
   font-size: var(--small-font-size);
+  transition: color 0.3s ease;
 }
 
 .about_subtitle {
   font-size: var(--tiny-font-size);
+  transition: color 0.3s ease;
 }
 
 .about_description {
   margin-bottom: 2rem;
+  transition: color 0.3s ease;
 }
 
-/* SKILLS */
-.skills_container {
-  row-gap: 2rem;
-  padding-top: 1rem;
-}
 
-.skills_content {
-  background-color: var(--container-color);
-  padding: 1.5rem;
-  border-radius: 1.25rem;
-}
-
-.skills_title {
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  color: var(--first-color);
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.skills_box {
-  display: flex;
-  justify-content: center;
-  column-gap: 2.5rem;
-}
-
-.skills_group {
-  display: grid;
-  align-content: flex-start;
-  row-gap: 1rem;
-}
-
-.skills_data {
-  display: flex;
-  column-gap: 0.5rem;
-}
-
-.skills .bxs-badge-check {
-  font-size: 1rem;
-  color: var(--first-color);
-}
-
-.skills_name {
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  line-height: 18px;
-}
-
-.skills_level {
-  font-size: var(--small-font-size);
-}
 
 /* WORK */
 .work_container {
-  padding-top: 2rem;
+  padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -664,45 +672,88 @@ font-weight: var(--font-medium);
 }
 
 .work_card {
-  background-color: var(--container-color);
-  padding: 1rem;
-  border-radius: 1rem;
-  width: 280px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
   text-align: center;
+  
 }
 
 .work_img {
-  border-radius: 1rem;
-  margin-bottom: 0.75rem;
   width: 100%;
   height: auto;
+  transition: transform 0.2s ease;
 }
 
 .work_title {
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: 0.25rem;
+  margin: 1rem 0;
+  font-size:1rem;
+  color: #464a4e;
+  transition: color 0.3s ease;
 }
 
-.work_button {
-  width: max-content;
-  color: var(--first-color);
-  font-size: var(--small-font-size);
-  display: flex;
-  align-items: center;
-  column-gap: 0.25rem;
-  cursor: pointer;
-  margin: 0 auto;
+.work_card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(31, 116, 214, 0.3); /* Soft blue glow */
+}
+.work_card:hover .work_img {
+  transform: scale(1.05);
+  transition: 1s ease-out;
 }
 
-.work_button:hover .work_icon {
-  transform: translateX(0.25rem);
+
+.work_button i {
+  font-size: 2rem;
+  color: #1f74d6;
+  transition: transform 0.3s ease;
 }
 
+.work_card:hover .work_button i {
+  transform: translateX(5px); /* Slide icon slightly */
+}
 .work_icon {
   font-size: 1rem;
   transition: 0.4s;
 }
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.work_card, 
+.work_img{
+  opacity: 2;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+/* PROJECT DESCRIPTION STYLES */
+.project_description {
+    max-width: 700px; 
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.project_title {
+    font-family: var(--title-font);
+    font-size: var(--h3-font-size);
+    color: var(--first-color-alt);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: none;
+}
+
+.project_text {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: #464a4e;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-weight: var(--font-medium);
+}
+
+
 
 /* Active item work*/
 .active-work {
@@ -714,6 +765,8 @@ font-weight: var(--font-medium);
 .contact_container {
   row-gap: 3rem;
   padding-bottom: 3rem;
+  color: #043577
+  
 }
 
 .contact_title {
@@ -728,16 +781,28 @@ font-weight: var(--font-medium);
 }
 
 .contact_card {
-  background-color: var(--container-color);
-  padding: 2rem 1rem;
-  border-radius: 0.75rem;
+  background-color: #6687c2e9;
+  border-radius: 16px;
+  padding: 1.5rem;
   text-align: center;
+  box-shadow: 0 4px 10px rgb(0, 81, 255);
+  transition: all 0.3s ease;
+}
+
+
+.contact_card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(61, 149, 237, 0.753);
 }
 
 .contact_card-icon {
   font-size: 2rem;
-  color: var(--title-color);
-  margin-bottom: 0.25rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+.contact_card:hover .contact_card-icon {
+  color: #43678f;
 }
 
 .contact_card-title,
@@ -755,19 +820,22 @@ font-weight: var(--font-medium);
 }
 
 .contact_button {
-  color: var(--first-color);
-  font-size: var(--small-font-size);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  column-gap: 0.25rem;
-  cursor: pointer;
+  gap: 0.4rem;
+  color: #3d5772;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .contact_button:hover .contact_button-icon {
   transform: translateX(0.25rem);
 }
-
+.contact_button:hover {
+  color: #1c87f2;
+  text-decoration: underline;
+}
 .contact_button-icon {
   font-size: 1rem;
   transition: 0.4s;
@@ -812,6 +880,8 @@ font-weight: var(--font-medium);
 .contact_form-area textarea {
   resize: none;
 }
+
+
 
 /* FOOTER */
 .footer {
@@ -1160,3 +1230,4 @@ font-weight: var(--font-medium);
     border-radius: 0.5rem;
   }
 }
+
