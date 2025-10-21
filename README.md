@@ -4,8 +4,11 @@ IT 110 - RANDOM QUOTE GENERATOR
 Group Information:
 ------------------
 GROUP NAME: GROUP 12 IT-110
+
 MEMBERS:
-Vivien Hermoso, Isaac Dumaplin, Kim Ayesha Anne Mongado
+- Vivien Hermoso
+- Isaac Dumaplin
+- Kim Ayesha Anne Mongado
 
 PROJECT DESCRIPTION:
 ---------------------
@@ -69,35 +72,44 @@ BROWSER COMPATIBILITY:
 FUNCTIONALITY BREAKDOWN:
 =========================
 1. Portfolio Logic (main.js)
+   
    1.1 Initialization
      - Runs when DOMContentLoaded fires.
      - Activates animations, scroll effects, and theme setup.
+       
    1.2 Navigation Systems
      - scrollHeader(): Adds or removes header shadow based on scroll.
      - scrollActive(): Highlights the current section link.
      - scrollReveal: Animates sections on entry.
+       
    1.3 Theme Management
      - Listens for toggle button clicks to switch between light/dark mode.
      - Saves user preference in localStorage.
      - Updates icons accordingly.
+       
    1.4 Project Filtering
      - Initializes Mixitup for project sorting.
      - Allows users to view specific categories dynamically.
+       
    1.5 Contact Form Integration
      - Sends messages through Web3Forms API.
      - Includes client-side validation and user feedback for success or errors.
 
 2. Random Quote Generator Logic (rqg.js)
+   
    2.1 Initialization
      - On load: applies saved theme, sets event listeners, and prepares UI.
+       
    2.2 Quote Generation Flow
      - User Click → getQuote() → Show Loading → Fetch API → Display Quote
+       
    2.3 getQuote() Function Steps
      1. Displays a loading state and clears the previous quote.
      2. Sends an API request to DummyJSON.
      3. Processes the JSON response and updates the DOM.
      4. Handles errors (e.g., no connection).
      5. Returns the UI to normal state.
+        
    2.4 Theme Synchronization
      - Uses shared localStorage keys (selected-theme, selected-icon).
      - Ensures consistent theme appearance across both applications.
