@@ -1,0 +1,465 @@
+/* ===== IMPORT FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ===== VARIABLES CSS ===== */
+:root {
+  --header-height: 3.5rem;
+
+  /* 🔵 Blue Theme */
+  --first-hue: 210; /* Blue */
+  --sat: 80%;
+  --lig: 45%;
+  --second-hue: 190; /* Light Blue Accent */
+
+  --first-color: hsl(var(--first-hue), var(--sat), var(--lig));      
+  --first-color-alt: hsl(var(--first-hue), var(--sat), 35%);
+  --accent-color: hsl(var(--second-hue), 80%, 75%);
+  --title-color: hsl(0, 0%, 98%);
+  --text-color: hsl(210, 20%, 80%);
+  --body-color: hsl(210, 30%, 12%);
+  --container-color: hsl(210, 25%, 16%);
+
+  /* ✍️ Fonts */
+  --title-font: 'Orbitron', sans-serif;
+  --body-font: 'Inter', sans-serif;
+
+  /* Font Weights */
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Font Sizes */
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.75rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  --tiny-font-size: 0.625rem;
+
+  /* Z-Index Layers */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+
+/* ===== LIGHT THEME ===== */
+body.light-theme {
+  --title-color: hsl(210, 25%, 10%);
+  --text-color: hsl(210, 15%, 25%);
+  --body-color: hsl(210, 100%, 99%);
+  --container-color: hsl(210, 20%, 95%);
+  --first-color: hsl(210, 80%, 50%);
+  --accent-color: hsl(190, 70%, 50%);
+}
+
+/* ===== BASE STYLES ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-weight: var(--font-medium);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--title-font);
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  letter-spacing: 1.2px;
+}
+
+/* ===== HEADER ===== */
+#quote-header {
+  background: var(--first-color);
+  padding: 1.5rem 2rem;
+  color: white;
+  font-family: var(--title-font);
+  font-weight: var(--font-bold);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+#quote-header h1 {
+  color: white;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: none;
+}
+
+/* ===== THEME BUTTON ===== */
+#theme-button {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+
+
+}
+
+#theme-button:hover {
+  transform: translateY(-50%) rotate(180deg);
+  
+}
+
+/* ===== BACK BUTTON ===== */
+.back-button {
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color:white;
+  width: 35px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  
+}
+
+.back-button:hover {
+ 
+  transform: translateY(-50%) scale(1.1);
+  text-decoration: none;
+}
+
+/* ===== QUOTE SECTION ===== */
+#quote-section {
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Quote Box - Instagram-like card */
+#quote-box {
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(14, 14, 14, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  transform: translateY(0);
+}
+#quote-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px hsla(var(--first-hue), 80%, 55%, 0.3);
+  border: 1px solid var(--accent-color);
+}
+
+/* Light theme hover version */
+body.light-theme #quote-box:hover {
+  box-shadow: 0 12px 40px hsla(var(--first-hue), 80%, 60%, 0.25);
+  border: 1px solid var(--first-color);
+}
+
+/* Instagram-like post header */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light-theme .post-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--first-color), var(--accent-color));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.username {
+  font-weight: var(--font-semibold);
+  color: var(--title-color);
+  font-size: 0.95rem;
+}
+
+.options {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* ===== QUOTE TEXT ===== */
+#quote {
+  font-size: 1.3rem;
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-style: italic;
+  padding: 0 1rem;
+}
+
+#author {
+  font-size: 1.1rem;
+  font-weight: var(--font-semibold);
+  color: var(--first-color);
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 2px solid var(--first-color);
+  margin-top: 1.5rem;
+}
+
+#author::before {
+  content: "— ";
+  color: var(--accent-color);
+}
+
+/* ===== NEW QUOTE BUTTON ===== */
+#new-quote {
+  background: var(--first-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: var(--font-semibold);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: var(--body-font);
+}
+
+#new-quote:hover {
+  background: var(--first-color-alt);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+#new-quote:active {
+  transform: translateY(0);
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  #quote-header {
+    padding: 1.2rem 1.5rem;
+  }
+  
+  #quote-header h1 {
+    font-size: 1.2rem;
+  }
+  
+  #quote-box {
+    padding: 1.5rem;
+  }
+  
+  #quote {
+    font-size: 1.2rem;
+  }
+  
+  #new-quote {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Phones */
+@media screen and (max-width: 480px) {
+  #quote-header {
+    padding: 1rem;
+  }
+  
+  #quote-header h1 {
+    font-size: 1.1rem;
+    padding: 0 3rem;
+  }
+  
+  .back-button,
+  #theme-button {
+    position: static;
+    display: inline-block;
+    margin: 0.5rem;
+  }
+  
+  .back-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  #theme-button {
+    padding: 0.4rem;
+    font-size: 1.1rem;
+  }
+  
+  #quote-section {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  #quote-box {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  #quote {
+    font-size: 1.1rem;
+    padding: 0;
+  }
+  
+  #author {
+    font-size: 1rem;
+  }
+  
+  .post-header {
+    margin-bottom: 1rem;
+  }
+  
+  .profile-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
+  }
+  
+  .username {
+    font-size: 0.9rem;
+  }
+  
+  #new-quote {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small phones */
+@media screen and (max-width: 360px) {
+  #quote-header h1 {
+    font-size: 1rem;
+  }
+  
+  #quote {
+    font-size: 1rem;
+  }
+  
+  #author {
+    font-size: 0.9rem;
+  }
+  
+  #quote-box {
+    padding: 1rem;
+  }
+}
+/* ===== NEW QUOTE BUTTON - Enhanced Hover ===== */
+#new-quote {
+  background: var(--first-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: var(--font-semibold);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: var(--body-font);
+  position: relative;
+  overflow: hidden;
+}
+
+#new-quote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: all 0.5s ease;
+}
+
+#new-quote:hover::before {
+  left: 100%;
+}
+
+#new-quote:hover {
+  background: var(--first-color-alt);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px var(--accent-color);
+}
+
+#new-quote:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}

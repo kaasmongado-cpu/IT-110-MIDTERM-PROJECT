@@ -1,37 +1,36 @@
-/* GOOGLE FONTS */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/* ===== IMPORT FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap');
 
-/* VARIABLES CSS */
+/* ===== VARIABLES CSS ===== */
 :root {
   --header-height: 3.5rem;
 
-  /* 🎨 Color Palette — Purple & Lavender Theme */
-  /*
-      Lavender: hsl(265, 60%, 85%)
-      Main Purple: hsl(265, 70%, 65%)
-      Deep Purple: hsl(265, 70%, 45%)
-      Background: hsl(265, 25%, 10%)
-      Text Light: hsl(0, 0%, 98%)
-      Text Muted: hsl(265, 15%, 70%)
-  */
-  --first-hue: 265;             /* Purple hue */
-  --sat: 70%;
-  --lig: 65%;
+  /* 🔵 Blue Theme */
+  --first-hue: 210; /* Blue */
+  --sat: 80%;
+  --lig: 45%;
+  --second-hue: 190; /* Light blue accent */
 
-  --second-hue: 265;           /* Keep same hue for text harmony */
-  --first-color: hsl(var(--first-hue), var(--sat), var(--lig));          /* Main purple */
-  --first-color-alt: hsl(var(--first-hue), var(--sat), 55%);             /* Darker purple for hover */
-  --title-color: hsl(265, 30%, 95%);                                     /* Bright titles */
-  --text-color: hsl(265, 15%, 75%);                                      /* Softer text */
-  --text-color-light: hsl(265, 10%, 55%);                                /* Muted text */
-  --body-color: hsl(265, 25%, 10%);                                      /* Deep purple background */
-  --container-color: hsl(265, 20%, 15%);                                 /* Section/container background */
-  --purple-color: hsl(265, 60%, 80%);                                    /* Accent lavender */
+  --first-color: hsl(var(--first-hue), var(--sat), var(--lig));      
+  --first-color-alt: hsl(var(--first-hue), var(--sat), 35%);
+  --accent-color: hsl(var(--second-hue), 80%, 75%);
+  --title-color: hsl(0, 0%, 98%);
+  --text-color: hsl(210, 20%, 80%);
+  --body-color: hsl(210, 30%, 12%);
+  --container-color: hsl(210, 25%, 16%);
 
-  /* ✍️ Font and Typography */
-  --body-font: "Poppins", sans-serif;
-  --biggest-font-size: 1.75rem;
-  --h1-font-size: 1.5rem;
+  /* ✍️ Fonts */
+  --title-font: 'Orbitron', sans-serif;
+  --body-font: 'Inter', sans-serif;
+
+  /* Bold weights */
+  --font-medium: 600;
+  --font-semibold: 700;
+  --font-bold: 800;
+
+  /* Sizes */
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.75rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
   --normal-font-size: 0.938rem;
@@ -39,11 +38,6 @@
   --smaller-font-size: 0.75rem;
   --tiny-font-size: 0.625rem;
 
-  /* Font weight */
-  --font-medium: 500;
-  --font-semibold: 600;
-
-  /* z-index */
   --z-tooltip: 10;
   --z-fixed: 100;
   --z-modal: 1000;
@@ -62,8 +56,7 @@
   }
 }
 
-
-/* BASE */
+/* ===== BASE STYLES ===== */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -83,16 +76,34 @@ textarea {
 }
 
 body {
+  font-weight: var(--font-semibold);
   background-color: var(--body-color);
   color: var(--text-color);
-  transition: 0.4s; /* for light mode animation */
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3, h4 {
+  font-family: var(--title-font);
+  font-weight: var(--font-bold);
   color: var(--title-color);
-  font-weight: var(--font-semibold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+.home_handle:hover,
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+h1, h2 {
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+button, .home_handle:hover {
+  box-shadow: 0 0 15px var(--accent-color);
+  transform: scale(1.05);
 }
 
 ul {
@@ -127,14 +138,12 @@ img {
 
 /*Variables light theme*/
 body.light-theme {
-  --title-color: hsl(var(--second-hue), 25%, 10%);    /* Darker titles */
-  --text-color: hsl(var(--second-hue), 15%, 20%);     /* Darker body text */
-  --text-color-light: hsl(var(--second-hue), 10%, 35%); /* Muted but readable */
+  --title-color: hsl(var(--second-hue), 25%, 10%);
+  --text-color: hsl(var(--second-hue), 15%, 20%);
+  --text-color-light: hsl(var(--second-hue), 10%, 35%);
   --body-color: hsl(var(--second-hue), 100%, 99%);
   --container-color: hsl(var(--second-hue), 15%, 90%);
 }
-
-
 
 /*
     Color changes in some parts of 
@@ -189,6 +198,7 @@ body.light-theme {
 .light-theme::-webkit-scrollbar {
   background-color: hsl(var(--second-hue), 8%, 80%);
 }
+
 /* REUSABLE CSS CLASSES */
 .container {
   max-width: 968px;
@@ -232,7 +242,6 @@ body.light-theme {
   top: 0;
   left: 0;
   width: 100%;
-  /* height: var(--header-height); */
   background-color: var(--body-color);
   z-index: var(--z-fixed);
   transition: 0.4s;
@@ -292,7 +301,6 @@ body.light-theme {
   );
   box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
   border-radius: 5rem;
-
   color: var(--title-color);
 }
 
@@ -314,8 +322,8 @@ body.light-theme {
 
 .home_greeting,
 .home_education {
-  font-size: var(--small-font-size);
-  font-weight: var(--font-medium);
+ font-size: var(--small-font-size);
+font-weight: var(--font-medium);
 }
 
 .home_greeting {
@@ -329,15 +337,17 @@ body.light-theme {
   margin-bottom: 2.5rem;
 }
 
-.home_name {
-  font-size: var(--biggest-font-size);
-  color: var(--first-color);
+/* Container for all 3 members */
+.home_team {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
-.home_img {
-  width: 260px;
-}
-
+/* Base container style */
 .home_handle {
   justify-self: center;
   width: 190px;
@@ -347,12 +357,80 @@ body.light-theme {
     hsla(var(--first-hue), var(--sat), var(--lig), 0.5),
     hsla(var(--first-hue), var(--sat), var(--lig), 0.1)
   );
-
   border-radius: 10rem 10rem 1rem 1rem;
+  box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
+  padding: 1rem;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.home_handle:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Image */
+.home_img {
+  width: 260px;
+  height: auto;
+  display: block;
+}
+
+/* Name caption */
+.home_name {
+  margin-top: 0.5rem;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--title-color);
+  text-align: center;
+}
+
+/* 🎨 Individual Hover Effects - Custom Color Variants */
+.home_handle:nth-child(1):hover {
+  transform: translateY(-8px) scale(1.05);
+  background: linear-gradient(135deg, #62badd, #a8d3f9); /* nude with blue accent */
+  box-shadow: 0 8px 20px rgba(156, 201, 241, 0.7); /* soft blue glow */
+}
+
+.home_handle:nth-child(2):hover {
+  transform: translateY(-8px) scale(1.05);
+  background: linear-gradient(135deg, #0a1a5e, #4da8ff); /* dark blue with light blue accent */
+  box-shadow: 0 8px 20px rgba(77, 168, 255, 0.7); /* bright light-blue glow */
+}
+
+.home_handle:nth-child(3):hover {
+  transform: translateY(-8px) scale(1.05);
+  background: linear-gradient(135deg, #6f42c1, #5ca9f2); /* purple with blue accent */
+  box-shadow: 0 8px 20px rgba(92, 169, 242, 0.7); /* blue glow */
+}
+
+/* Add a slight zoom to the image itself */
+.home_handle img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+  border-radius: 1rem;
+}
+
+.home_handle:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* 🎨 Individual Blue Gradients */
+.home_handle:nth-child(1) {
+  background: linear-gradient(180deg, #09c2d0, #e6f7ff);
+}
+.home_handle:nth-child(2) {
+  background: linear-gradient(180deg, #0441e9, #d4f1ff);
+}
+
+.home_handle:nth-child(3) {
+ background: linear-gradient(180deg, #6a68af, #e1ecff);
 }
 
 .home_button {
@@ -416,26 +494,46 @@ body.light-theme {
   transform: rotate(-90deg);
 }
 
-/* BUTTONS */
+/* ✨ Button Glow Effect */
 .button {
-  display: inline-block;
+  position: relative;
+  overflow: hidden;
   background-color: var(--first-color);
-  color: var(--body-color);
-  padding: 0.75rem 1rem;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
   border-radius: 0.8rem;
-  font-weight: var(--font-medium);
-  transition: 0.4s;
+  font-weight: var(--font-semibold);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px hsla(var(--first-hue), 70%, 60%, 0.3);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, hsla(var(--first-hue), 80%, 75%, 0.5), transparent 60%);
+  transform: scale(0);
+  transition: transform 0.4s ease-out;
+  z-index: 0;
+}
+
+.button:hover::before {
+  transform: scale(1);
 }
 
 .button:hover {
-  background-color: var(--first-color-alt);
-  color: var(--body-color);
+  box-shadow: 0 0 20px hsla(var(--first-hue), 80%, 70%, 0.7),
+              0 0 40px hsla(var(--first-hue), 80%, 70%, 0.3);
+  transform: translateY(-3px);
 }
 
-.button--ghost {
-  background-color: transparent;
-  color: var(--first-color);
-  border: 1px solid var(--first-color);
+/* Ensure text stays above the glow */
+.button span, .button i {
+  position: relative;
+  z-index: 1;
 }
 
 /* ABOUT */
@@ -447,10 +545,17 @@ body.light-theme {
   width: 220px;
   border-radius: 1.5rem;
   justify-self: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about_img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .about_data {
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .about_info {
@@ -464,12 +569,24 @@ body.light-theme {
   background-color: var(--container-color);
   border-radius: 0.75rem;
   padding: 0.75rem 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about_box:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .about_icon {
   font-size: 1.5rem;
   color: var(--first-color);
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.about_box:hover .about_icon {
+  color: #4682b4; /* steel blue accent */
+  transform: scale(1.2);
 }
 
 .about_title {
@@ -536,36 +653,28 @@ body.light-theme {
   font-size: var(--small-font-size);
 }
 
-
-/*Active modal*/
-
-.active-modal {
-  visibility: visible;
-  opacity: 1;
-}
-
 /* WORK */
 .work_container {
   padding-top: 2rem;
   display: flex;
-  flex-wrap: wrap;              /* Allows cards to wrap on smaller screens */
-  justify-content: center;      /* ✅ Centers horizontally */
-  gap: 1.5rem;                  /* Space between cards */
-  text-align: center;          /* ✅ Centers text inside */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
 }
 
 .work_card {
   background-color: var(--container-color);
   padding: 1rem;
   border-radius: 1rem;
-  width: 280px;                /* Optional: fix consistent card width */
-  text-align: center;          /* ✅ Centers title and button inside the card */
+  width: 280px;
+  text-align: center;
 }
 
 .work_img {
   border-radius: 1rem;
   margin-bottom: 0.75rem;
-  width: 100%;                 /* ✅ Makes image fill the card width */
+  width: 100%;
   height: auto;
 }
 
@@ -583,7 +692,7 @@ body.light-theme {
   align-items: center;
   column-gap: 0.25rem;
   cursor: pointer;
-  margin: 0 auto;              /* ✅ Centers the button inside the card */
+  margin: 0 auto;
 }
 
 .work_button:hover .work_icon {
@@ -595,44 +704,10 @@ body.light-theme {
   transition: 0.4s;
 }
 
-
 /* Active item work*/
 .active-work {
   background-color: var(--first-color);
   color: var(--body-color);
-}
-
-/* Certificates */
-.cert_card {
-  background-color: var(--container-color);
-  padding: 1.25rem 1.5rem;
-  border-radius: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.cert_img {
-  width: 600px;
-  border-radius: 1rem;
-}
-
-.cert_name {
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: 0.25rem;
-}
-
-.cert_description {
-  font-size: var(--small-font-size);
-  margin-bottom: 0.15rem;
-}
-
-/* Swiper class */
-.swiper-pagination-bullet {
-  background-color: var(--text-color-light);
-}
-
-.swiper-pagination-bullet-active {
-  background-color: var(--first-color);
 }
 
 /* CONTACT */
@@ -737,6 +812,7 @@ body.light-theme {
 .contact_form-area textarea {
   resize: none;
 }
+
 /* FOOTER */
 .footer {
   background-color: var(--first-color);
@@ -954,31 +1030,7 @@ body.light-theme {
   .contact_form {
     width: 340px;
   }
-  /* .contact_info {
-    grid-template-columns: 350px;
-    justify-content: center;
-  }
-
-  .contact_form {
-    width: 360px;
-    margin: 0 auto;
-  } */
 }
-
-/* @media screen and (min-width: 767px) {
-  /* .work_container {
-    grid-template-columns: repeat(2, max-content);
-  } */
-
-/* .contact_info {
-    grid-template-columns: 300px;
-  }
-
-  .contact_container {
-    grid-template-columns: repeat(2, 325px);
-    justify-content: center;
-  }
-} */
 
 /* For large devices */
 @media screen and (min-width: 992px) {
@@ -1084,14 +1136,6 @@ body.light-theme {
     margin-bottom: 0.5rem;
   }
 
-  .cert_container {
-    width: 970px;
-  }
-
-  .cert_card {
-    padding: 1.5rem 2rem;
-  }
-
   .contact_info {
     grid-template-columns: 430px;
     gap: 1rem;
@@ -1109,48 +1153,10 @@ body.light-theme {
     grid-template-columns: repeat(2, 430px);
     column-gap: 6rem;
   }
-
+  
   .footer_social-link {
     font-size: 1.25rem;
     padding: 0.4rem;
     border-radius: 0.5rem;
   }
 }
-
-/* ✍️ Edit Button - Themed */
-#edit-about-btn {
-  margin-top: 10px;
-  padding: 12px 10px;
-  background-color: var(--first-color);      /* Main purple */
-  color: #1b1b1b;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
-  font-family: var(--body-font);
-  font-weight: var(--font-medium);
-  font-size: var(--normal-font-size);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px hsla(var(--first-hue), 70%, 45%, 0.3);
-}
-
-/* 💜 Hover & Focus States - Match Portfolio Buttons */
-#edit-about-btn:hover {
-  background-color: var(--first-color-alt);   /* Slightly darker purple */
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px hsla(var(--first-hue), 70%, 45%, 0.4);
-}
-
-#edit-about-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px hsla(var(--first-hue), 70%, 65%, 0.5);
-}
-
-/* ✨ Editable Text Highlight */
-#about-text[contenteditable="true"] {
-  outline: 2px dashed var(--purple-color);
-  background-color: hsla(var(--first-hue), 30%, 20%, 0.3);
-  padding: 5px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, outline 0.3s ease;
-}
-
