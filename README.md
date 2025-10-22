@@ -12,25 +12,23 @@ MEMBERS:
 
 PROJECT DESCRIPTION:
 ---------------------
-This project is a dual-purpose web application combining a professional student portfolio with an interactive Random Quote Generator (RQG). The portfolio showcases team skills and projects, while the RQG fetches motivational quotes from an external API. This design demonstrates proficiency in modern front-end development, responsive design, and robust API integration.
+This project is a dual-purpose web application that combines a professional portfolio website with an interactive Random Quote Generator. The portfolio highlights team information, skills, and featured projects, while the quote generator provides motivational quotes fetched from an external API. Together, they showcase both design and technical integration capabilities.
 
 KEY FEATURES:
 ----------------------
 Portfolio (index.html)
-- Responsive Navigation: Includes a sticky header with dynamic link highlighting based on the user's scroll position.
-- Theme Toggle: Provides Light and Dark modes with user preference saved persistently using the browser's localStorage.
-- Animated Sections: : Features an engaging user interface with smooth visual effects.
-- Project Gallery: Displays categorized project cards.
-- Contact Form: Integrated for reliable message submission using the Web3Forms API.
-- Smooth Scrolling: Offers fluid transitions between various page sections.
+- Responsive Navigation: Sticky header with active link highlighting based on scroll position.
+- Theme Toggle: Light and dark modes with saved preferences using localStorage.
+- Contact Form: Integrated with Web3Forms API for form submissions.
+- Smooth Scrolling between sections.
 
 Random Quote Generator (rqg.html)
-- API Integration: Fetches random quotes using the DummyJSON Quotes API.
-- Loading Indicators: Displays clear loading indicators while fetching new content.
-- Error Management: Manages connection issues and API errors gracefully.
-- Theme Consistency: Synchronizes its appearance with the portfolio's stored theme preference.
-- Instant Quote Refresh: Generates a new quote dynamically with a single button click.
-  
+- API Integration: Retrieves random quotes via the DummyJSON Quotes API.
+- Loading Indicators: Shows a simple “Loading...” message while fetching quotes.
+- Error Handling: Displays an error message if the API fails.
+- Theme Consistency: Uses the same dark/light mode as the portfolio.
+- Instant Quote Refresh: Generates a new quote with one click
+
 API INFORMATION:
 ----------------
 | Component       | API Used             | Documentation                                                  | Endpoint                                                                   |
@@ -59,7 +57,6 @@ USAGE INSTRUCTIONS:
 - In the Projects section, click the Random Quote Generator card to open the feature.
 - An internet connection is required for API calls and theme persistence.
 - Theme preferences are shared between both pages.
-- Use a modern web browser for the best experience.
 
 BROWSER COMPATIBILITY:
 ----------------------
@@ -78,26 +75,27 @@ FUNCTIONALITY BREAKDOWN:
      - Activates animations, scroll effects, and theme setup.
        
    1.2 Navigation Systems
-     - scrollHeader(): Controls the visual state of the header based on scroll depth.
-     - scrollActive(): Determines the visible section and updates the corresponding navigation link's active state.
+     - scrollHeader(): Adds or removes header shadow based on scroll.
+     - scrollActive(): Highlights the current section link.
+     - scrollReveal: Animates sections on entry.
        
    1.3 Theme Management
-     - Listens for toggle button clicks to switch between light/dark mode.
-     - Saves user preference in localStorage.
-     - Updates icons accordingly.
+     - Provides a Dark/Light mode toggle accessible from the header.
+     - Saves the selected theme in localStorage so it stays the same next time.
+     - Dynamically changes the icon (sun/moon) to reflect the active theme.
        
    1.4 Project Filtering
-     - Initializes Mixitup for project sorting.
      - Allows users to view specific categories dynamically.
        
    1.5 Contact Form Integration
-     - Sends messages through Web3Forms API.
-     - Includes client-side validation and user feedback for success or errors.
+     - Sends form data through the Web3Forms API.
+     - Includes simple input validation.
+     - Shows success or error messages after sending.
 
 2. Random Quote Generator Logic (rqg.js)
    
    2.1 Initialization
-     - On load: applies saved theme, sets event listeners, and prepares UI.
+     - Loads saved theme settings and sets up the button and quote display.
        
    2.2 Quote Generation Flow
      - User Click → getQuote() → Show Loading → Fetch API → Display Quote
@@ -118,7 +116,6 @@ DATA FLOW OVERVIEW:
 ===================
 Quote Data:
 API Response → JSON Parse → Extract {quote, author} → Display on Screen
-
 Theme Data:
 Button Click → Toggle Class → Save to localStorage → Apply Globally
 
