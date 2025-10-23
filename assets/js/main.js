@@ -3,20 +3,7 @@ window.addEventListener("scroll", () => {
   document.getElementById("header").classList.toggle("scroll-header", window.scrollY >= 50);
 });
 
-/* === SERVICES MODAL === */
-const modals = document.querySelectorAll(".services_modal");
-const modalBtns = document.querySelectorAll(".services_button");
-const modalClose = document.querySelectorAll(".services_modal-close");
 
-modalBtns.forEach((btn, i) =>
-  btn.addEventListener("click", () => modals[i].classList.add("active-modal"))
-);
-
-modalClose.forEach((close) =>
-  close.addEventListener("click", () =>
-    modals.forEach((m) => m.classList.remove("active-modal"))
-  )
-);
 
 /* === SCROLL SECTIONS ACTIVE LINK === */
 const sections = document.querySelectorAll("section[id]");
@@ -53,14 +40,7 @@ themeBtn.addEventListener("click", () => {
   localStorage.setItem("selected-icon", getIcon());
 });
 
-/* === SCROLL ANIMATIONS USING INTERSECTION OBSERVER === */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.2 });
+
 
 // Observe elements in Home section
 document.querySelectorAll('.home_data, .home_team, .home_scroll')
