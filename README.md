@@ -1,4 +1,4 @@
-T 110 - RANDOM QUOTE GENERATOR
+IT 110 - RANDOM QUOTE GENERATOR
 ===================================
 
 Group Information:
