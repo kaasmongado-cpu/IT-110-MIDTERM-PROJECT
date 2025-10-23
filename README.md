@@ -1,4 +1,4 @@
-IT 110 - RANDOM QUOTE GENERATOR
+T 110 - RANDOM QUOTE GENERATOR
 ===================================
 
 Group Information:
@@ -77,7 +77,6 @@ FUNCTIONALITY BREAKDOWN:
    1.2 Navigation Systems
      - scrollHeader(): Adds or removes header shadow based on scroll.
      - scrollActive(): Highlights the current section link.
-     - scrollReveal: Animates sections on entry.
        
    1.3 Theme Management
      - Provides a Dark/Light mode toggle accessible from the header.
