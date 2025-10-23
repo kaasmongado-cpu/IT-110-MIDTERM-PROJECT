@@ -42,13 +42,6 @@ themeBtn.addEventListener("click", () => {
 
 
 
-// Observe elements in Home section
-document.querySelectorAll('.home_data, .home_team, .home_scroll')
-        .forEach(el => observer.observe(el));
-
-// Observe elements in About section
-document.querySelectorAll('.about_img, .about_data, .about_box')
-        .forEach(el => observer.observe(el));
 
 
         
